@@ -1,8 +1,8 @@
-目录结构说明:
+鐩綍缁撴瀯璇存槑:
 
-IMEInterviewCounter - 多线程计数器
+IMEInterviewCounter - 澶氱嚎绋嬭鏁板櫒
 
-IMEInterviewJDBC - JDBC登录注册
-	目录总的jdbc.sql 是数据库创建代码
+IMEInterviewJDBC - JDBC鐧诲綍娉ㄥ唽
+鐩綍涓殑jdbc.sql 鏄暟鎹簱鍒涘缓浠ｇ爜
 
-IMEInterviewChart - HighChart做的图表
+IMEInterviewChart - HighChart鍋氱殑鍥捐〃
