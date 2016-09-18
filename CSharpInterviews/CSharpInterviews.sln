@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpInterviews", "CSharpInterviews.csproj", "{ED9B1A3D-A455-46F7-B8F5-E5783B371B78}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpInterviewTests", "..\CSharpInterviewTests\CSharpInterviewTests.csproj", "{50F0DEA7-10D6-46D2-9DDB-B918ACB48C26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsertionSort", "..\InsertionSort\InsertionSort.csproj", "{20D76034-65E5-4F77-BDFA-8F6A27B896A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{50F0DEA7-10D6-46D2-9DDB-B918ACB48C26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50F0DEA7-10D6-46D2-9DDB-B918ACB48C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50F0DEA7-10D6-46D2-9DDB-B918ACB48C26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20D76034-65E5-4F77-BDFA-8F6A27B896A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20D76034-65E5-4F77-BDFA-8F6A27B896A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20D76034-65E5-4F77-BDFA-8F6A27B896A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20D76034-65E5-4F77-BDFA-8F6A27B896A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
