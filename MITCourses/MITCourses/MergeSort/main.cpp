@@ -6,44 +6,70 @@
 
 using std::vector;
 
-void merge(int leftStart, int rightStart, vector<int>& sorted)
+void merge(int left, int middle, int right, vector<int>& arr)
 {
-    int count = rightStart - leftStart;
+    int leftArraySize = middle - left + 1;
+    vector<int> leftArray;
+    leftArray.reserve(leftArraySize);
 
-    if (count <= 0)
+    for (int i = left; i <= middle; ++i)
     {
-        return;
+        leftArray.push_back(arr[i]);
     }
 
-    if (count == 1)
-    {
-        sorted.push_back(std::min(sorted[leftStart], sorted[rightStart]));
+    // Sentinel number. 
+    leftArray.push_back(INT_MAX);
 
-        return;
+    int rightArraySize = right - (middle + 1) + 1;
+    vector<int> rightArray;
+    rightArray.reserve(rightArraySize);
+
+    for (int i = middle + 1; i <= right; ++i)
+    {
+        rightArray.push_back(arr[i]);
     }
 
-    merge(leftStart, count / 2,sorted);
-    merge(count / 2 + 1, count - count / 2, source, sorted);
+    // Sentinel number.
+    rightArray.push_back(INT_MAX);
+
+    int i = 0;
+    int j = 0;
+
+    for (int k = left; k <= right; ++k)
+    {
+        if (leftArray[i] < rightArray[j])
+        {
+            arr[k] = leftArray[i];
+            ++i;
+        }
+        else
+        {
+            arr[k] = rightArray[j];
+            ++j;
+        }
+    }
 }
 
-vector<int> mergeSort(vector<int> arr)
+void mergeSort(vector<int>& arr, int left, int right)
 {
-    if (arr.empty() || arr.size() == 1)
+    if (left >= right)
     {
-        return arr;
+        return;
     }
 
-    vector<int> sortedArray;
+    int middle = left + (right - left) / 2;
 
-    merge(0, arr.size() / 2 - 1, arr.size() / 2, arr, sortedArray);
-    merge(arr.size() / 2, arr.size() - arr.size() / 2, arr.size() - arr.size() / 2, arr, sortedArray);
+    // Divde
+    mergeSort(arr, left, middle);
+    mergeSort(arr, middle + 1, right);
 
-    return sortedArray;
+    // Conquer
+    merge(left, middle, right, arr);
 }
 
 int main()
 {
-    int arraySize = 10;
+    int arraySize = 500;
 
     vector<int> arr;
     arr.reserve(arraySize);
@@ -54,7 +80,7 @@ int main()
 
     std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 
-    vector<int> sortedArr = mergeSort(arr);
+    mergeSort(arr, 0, arr.size() - 1);
 
     std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
 
