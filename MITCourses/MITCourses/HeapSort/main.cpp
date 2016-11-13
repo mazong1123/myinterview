@@ -63,8 +63,7 @@ void heapSort(vector<int>& v)
     while (heapSize >= 2)
     {
         // Swap the first element and last element in the heap.
-        // So the first element is the smallest element and the last
-        // element is the largest element at this time. 
+        // So the the last element is the largest element at this time. 
         int temp = v[0];
         v[0] = v[heapSize - 1];
         v[heapSize - 1] = temp;
