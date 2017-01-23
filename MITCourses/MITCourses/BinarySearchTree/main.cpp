@@ -9,6 +9,53 @@ struct Node
 	int v;
 };
 
+Node* search(Node* tree, int value)
+{
+	Node* c = tree;
+	while (c != nullptr && c->v != value)
+	{
+		if (value < c->v)
+		{
+			c = c->left;
+		}
+		else
+		{
+			c = c->right;
+		}
+	}
+
+	return c;
+}
+
+Node* min(Node* tree)
+{
+	if (tree == nullptr)
+	{
+		return nullptr;
+	}
+
+	while (tree->left != nullptr)
+	{
+		tree = tree->left;
+	}
+
+	return tree;
+}
+Node* max(Node* tree)
+{
+	if (tree == nullptr)
+	{
+		return nullptr;
+	}
+
+	while (tree->right != nullptr)
+	{
+		tree = tree->right;
+	}
+
+	return tree;
+}
+
 void insert(Node** root, Node* newNode)
 {
 	if (newNode == nullptr)
@@ -62,6 +109,18 @@ int main()
 
 		insert(&tree, n);
 	}
+
+	// Search
+	Node* s = search(tree, 398);
+	std::cout << "search result : " << s->v << std::endl;
+
+	// Min
+	Node* minNode = min(tree);
+	std::cout << "min result : " << minNode->v << std::endl;
+
+	// Max
+	Node* maxNode = max(tree);
+	std::cout << "max result : " << maxNode->v << std::endl;
 
 	// Release allocated memories of the tree.
 	Node* c = tree;
