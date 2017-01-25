@@ -56,6 +56,34 @@ Node* max(Node* tree)
 	return tree;
 }
 
+Node* successor(Node* node)
+{
+	if (node == nullptr)
+	{
+		return nullptr;
+	}
+
+	Node* successor = node->right;
+	if (successor != nullptr)
+	{
+		while (successor->left != nullptr)
+		{
+			successor = successor->left;
+		}
+	}
+	else
+	{
+		successor = node->p;
+		while (successor != nullptr && successor->right == node)
+		{
+			node = successor;
+			successor = node->p;
+		}
+	}
+
+	return successor;
+}
+
 void insert(Node** root, Node* newNode)
 {
 	if (newNode == nullptr)
@@ -101,7 +129,7 @@ void insert(Node** root, Node* newNode)
 int main()
 {
 	Node* tree = nullptr;
-	std::vector<int> input = { 2, 252, 401, 398, 330, 344, 397, 363 };
+	std::vector<int> input = { 15, 6, 18, 3, 7, 17, 20, 2, 4, 13, 9 };
 	for (auto iter = input.begin(); iter != input.end(); ++iter)
 	{
 		Node* n = new Node();
@@ -111,7 +139,7 @@ int main()
 	}
 
 	// Search
-	Node* s = search(tree, 398);
+	Node* s = search(tree, 15);
 	std::cout << "search result : " << s->v << std::endl;
 
 	// Min
@@ -121,6 +149,10 @@ int main()
 	// Max
 	Node* maxNode = max(tree);
 	std::cout << "max result : " << maxNode->v << std::endl;
+
+	// Successor
+	Node* successorNode = successor(s);
+	std::cout << "successor of " << s->v << " is " << successorNode->v << std::endl;
 
 	// Release allocated memories of the tree.
 	Node* c = tree;
