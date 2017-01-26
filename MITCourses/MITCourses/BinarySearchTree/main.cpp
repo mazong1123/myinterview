@@ -86,12 +86,12 @@ Node* successor(Node* node)
 
 void insert(Node** root, Node* newNode)
 {
-	if (newNode == nullptr)
+	if (newNode == nullptr || root == nullptr)
 	{
 		return;
 	}
 
-	if (root == nullptr || *root == nullptr)
+	if (*root == nullptr)
 	{
 		*root = newNode;
 		newNode->p = nullptr;
