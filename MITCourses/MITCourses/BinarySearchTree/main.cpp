@@ -56,6 +56,37 @@ Node* max(Node* tree)
 	return tree;
 }
 
+Node* predecessor(Node* node)
+{
+	if (node == nullptr)
+	{
+		return node;
+	}
+
+	Node* c = nullptr;
+	Node* p = node->left;
+	if (p != nullptr)
+	{
+		do
+		{
+			c = p;
+			p = p->right;
+		} while (p != nullptr);
+
+		return c;
+	}
+
+	p = node->p;
+	c = node;
+	while (p != nullptr && p->left == c)
+	{
+		c = p;
+		p = p->p;
+	}
+
+	return p;
+}
+
 Node* successor(Node* node)
 {
 	if (node == nullptr)
@@ -86,12 +117,12 @@ Node* successor(Node* node)
 
 void insert(Node** root, Node* newNode)
 {
-	if (newNode == nullptr || root == nullptr)
+	if (newNode == nullptr)
 	{
 		return;
 	}
 
-	if (*root == nullptr)
+	if (root == nullptr || *root == nullptr)
 	{
 		*root = newNode;
 		newNode->p = nullptr;
@@ -126,6 +157,144 @@ void insert(Node** root, Node* newNode)
 	}
 }
 
+void remove(Node** tree, Node* node)
+{
+	if (node == nullptr)
+	{
+		return;
+	}
+
+	if (node->left == nullptr)
+	{
+		if (node->p == nullptr)
+		{
+			*tree = node->right;
+			if (node->right != nullptr)
+			{
+				node->right->p = nullptr;
+			}
+		}
+		else
+		{
+			if (node->p->right == node)
+			{
+				node->p->right = node->right;
+			}
+			else
+			{
+				node->p->left = node->right;
+			}
+
+			if (node->right != nullptr)
+			{
+				node->right->p = node->p;
+			}
+		}
+	}
+	else if (node->right == nullptr)
+	{
+		if (node->p == nullptr)
+		{
+			*tree = node->left;
+			if (node->left != nullptr)
+			{
+				node->left->p = nullptr;
+			}
+		}
+		else
+		{
+			if (node->p->right == node)
+			{
+				node->p->right = node->left;
+			}
+			else
+			{
+				node->p->left = node->left;
+			}
+
+			if (node->left != nullptr)
+			{
+				node->left->p = node->p;
+			}
+		}
+
+	}
+	else
+	{
+		// Find successor.
+		Node* temp = node->right;
+		Node* c = temp->left;
+		while (c != nullptr)
+		{
+			temp = c;
+			c = c->left;
+		}
+
+		if (temp->p == node)
+		{
+			if (node->p == nullptr)
+			{
+				*tree = temp;
+				if (temp != nullptr)
+				{
+					temp->p = nullptr;
+				}
+			}
+			else
+			{
+				if (node->p->right == node)
+				{
+					node->p->right = temp;
+				}
+				else
+				{
+					node->p->left = temp;
+				}
+
+				if (temp != nullptr)
+				{
+					temp->p = node->p;
+				}
+			}
+			temp->left = node->left;
+			node->left->p = temp;
+		}
+		else
+		{
+			temp->p->left = temp->right;
+			if (temp->right != nullptr)
+			{
+				temp->right->p = temp->p;
+			}
+
+			if (node->p == nullptr)
+			{
+				*tree = temp;
+			}
+			else if (node->p->right == node)
+			{
+				node->p->right = temp;
+			}
+			else
+			{
+				node->p->left = temp;
+			}
+
+			if (temp != nullptr)
+			{
+				temp->p = node->p;
+			}
+
+			temp->left = node->left;
+			node->left->p = temp;
+
+			temp->right = node->right;
+			node->right->p = temp;
+		}
+	}
+}
+
+
 int main()
 {
 	Node* tree = nullptr;
@@ -152,7 +321,28 @@ int main()
 
 	// Successor
 	Node* successorNode = successor(s);
-	std::cout << "successor of " << s->v << " is " << successorNode->v << std::endl;
+	if (successorNode != nullptr)
+	{
+		std::cout << "successor of " << s->v << " is " << successorNode->v << std::endl;
+	}
+	else
+	{
+		std::cout << "No successor of " << s->v << std::endl;
+	}
+
+	// Precessor
+	Node* predecessorNode = predecessor(s);
+	if (predecessorNode != nullptr)
+	{
+		std::cout << "predecessor of " << s->v << " is " << predecessorNode->v << std::endl;
+	}
+	else
+	{
+		std::cout << "No predecessor of " << s->v << std::endl;
+	}
+
+	// Remove
+	remove(&tree, s);
 
 	// Release allocated memories of the tree.
 	Node* c = tree;
