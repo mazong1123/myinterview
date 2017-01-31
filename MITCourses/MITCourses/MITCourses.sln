@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BinarySearchTree", "BinaryS
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RedBlackTree", "RedBlackTree\RedBlackTree.vcxproj", "{25DF13E4-A80C-464E-8649-2CB928F148CC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CutRod", "CutRod\CutRod.vcxproj", "{70704913-22F4-4830-9544-452E99D8C622}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -133,6 +135,16 @@ Global
 		{25DF13E4-A80C-464E-8649-2CB928F148CC}.Release|x64.Build.0 = Release|x64
 		{25DF13E4-A80C-464E-8649-2CB928F148CC}.Release|x86.ActiveCfg = Release|Win32
 		{25DF13E4-A80C-464E-8649-2CB928F148CC}.Release|x86.Build.0 = Release|Win32
+		{70704913-22F4-4830-9544-452E99D8C622}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{70704913-22F4-4830-9544-452E99D8C622}.Debug|x64.ActiveCfg = Debug|x64
+		{70704913-22F4-4830-9544-452E99D8C622}.Debug|x64.Build.0 = Debug|x64
+		{70704913-22F4-4830-9544-452E99D8C622}.Debug|x86.ActiveCfg = Debug|Win32
+		{70704913-22F4-4830-9544-452E99D8C622}.Debug|x86.Build.0 = Debug|Win32
+		{70704913-22F4-4830-9544-452E99D8C622}.Release|Any CPU.ActiveCfg = Release|Win32
+		{70704913-22F4-4830-9544-452E99D8C622}.Release|x64.ActiveCfg = Release|x64
+		{70704913-22F4-4830-9544-452E99D8C622}.Release|x64.Build.0 = Release|x64
+		{70704913-22F4-4830-9544-452E99D8C622}.Release|x86.ActiveCfg = Release|Win32
+		{70704913-22F4-4830-9544-452E99D8C622}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
