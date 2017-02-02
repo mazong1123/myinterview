@@ -27,6 +27,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CutRod", "CutRod\CutRod.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fibonacci", "Fibonacci\Fibonacci.vcxproj", "{DA431826-9BCD-46A6-8E31-9F95335EBD60}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExcelColumn", "ExcelColumn\ExcelColumn.vcxproj", "{4E1ACF85-E4F2-4A78-BA4F-39547B41BB96}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -157,6 +159,16 @@ Global
 		{DA431826-9BCD-46A6-8E31-9F95335EBD60}.Release|x64.Build.0 = Release|x64
 		{DA431826-9BCD-46A6-8E31-9F95335EBD60}.Release|x86.ActiveCfg = Release|Win32
 		{DA431826-9BCD-46A6-8E31-9F95335EBD60}.Release|x86.Build.0 = Release|Win32
+		{4E1ACF85-E4F2-4A78-BA4F-39547B41BB96}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{4E1ACF85-E4F2-4A78-BA4F-39547B41BB96}.Debug|x64.ActiveCfg = Debug|x64
+		{4E1ACF85-E4F2-4A78-BA4F-39547B41BB96}.Debug|x64.Build.0 = Debug|x64
+		{4E1ACF85-E4F2-4A78-BA4F-39547B41BB96}.Debug|x86.ActiveCfg = Debug|Win32
+		{4E1ACF85-E4F2-4A78-BA4F-39547B41BB96}.Debug|x86.Build.0 = Debug|Win32
+		{4E1ACF85-E4F2-4A78-BA4F-39547B41BB96}.Release|Any CPU.ActiveCfg = Release|Win32
+		{4E1ACF85-E4F2-4A78-BA4F-39547B41BB96}.Release|x64.ActiveCfg = Release|x64
+		{4E1ACF85-E4F2-4A78-BA4F-39547B41BB96}.Release|x64.Build.0 = Release|x64
+		{4E1ACF85-E4F2-4A78-BA4F-39547B41BB96}.Release|x86.ActiveCfg = Release|Win32
+		{4E1ACF85-E4F2-4A78-BA4F-39547B41BB96}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
