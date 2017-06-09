@@ -1,5 +1,6 @@
 
-int lengthOfLongestSubstring(string s) {
+int lengthOfLongestSubstring(string s) 
+{
   if (s.empty())
   {
     return 0;
